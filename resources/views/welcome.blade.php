@@ -66,7 +66,7 @@
     </head>
     <body>
       <div id="app">
-        <div class="flex-center position-ref full-height">
+        <div class="container-fluid  position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -84,7 +84,7 @@
             <div class="content">
 
                 <backend></backend>
-                
+
             </div>
         </div>
       </div>

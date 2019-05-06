@@ -54,14 +54,11 @@ export default {
 
   methods: {
     login(){
-        console.log(this.loginform)
-        let data = this.loginform;
-            this.$Progress.start();
-            this.loginform.post('/api/login', data)
-                .then(({data}) => {
-                    auth.login(data.token, data.user);
-
-                    this.$router.push('/dashboard');
+        this.$Progress.start();
+        console.log(this.loginform, 'form')
+        this.$store.dispatch('retrieveToken', this.loginform)
+                .then(({response}) => {
+                    this.$router.push({name:'Dashboard'})
                     toast({
                             type: 'success',
                             title: 'You have been logged in successfully'
@@ -69,11 +66,10 @@ export default {
                         this.$Progress.finish()
                 })
                 .catch(({response}) => {
-                    // alert(response.data.message);
                     this.$Progress.fail()
                     toast({
                         type: 'error',
-                        title: (response.data.message)
+                        title: "something is wrong"
                     })
                 });
         }

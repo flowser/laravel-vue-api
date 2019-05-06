@@ -10,10 +10,10 @@ window.Event = new Vue;
 import Vuex from 'vuex';
 Vue.use(Vuex);
 
-// import storeData from "./store/index";
-// const store = new Vuex.Store(
-//     storeData
-// )
+import storeData from "./store/index";
+const store = new Vuex.Store(
+    storeData
+)
 //support moemnt js
 // import {filter} from './filter';
 
@@ -78,14 +78,6 @@ window.toast = toast;
 // import Roles from './components/spartiepermissions/Roles';
 // Vue.mixin(Roles);
 
-//vform
-// import { Form, HasError, AlertError } from 'vform';
-//make global
-// Vue.component(HasError.name, HasError)
-// Vue.component(AlertError.name, AlertError)
-
-
-
 
 // import Vue from 'vue'
 import { Form, HasError, AlertError } from 'vform';
@@ -107,6 +99,6 @@ Vue.use(VueFormWizard);
 const app = new Vue({
     el: '#app',
     router,
-    // store,
+    store,
     Auth,
 });
